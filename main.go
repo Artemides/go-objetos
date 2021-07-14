@@ -1,43 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-type Course struct {
-	Name    string
-	Price   float64
-	IsFree  bool
-	UserIDs []uint
-	Clases  map[uint]string
-}
-
-func (c *Course) ChangePrice(price float64) {
-	c.Price = price
-}
-func (Course) getName() {
-	fmt.Println(" Holi")
-}
-func (c Course) GetCursos() {
-	text := "Los cursos son: "
-
-	for _, clases := range c.Clases {
-		text += clases + ", "
-	}
-	fmt.Println(text[:len(text)-2])
-}
+	"github.com/Artemides/go-objetos/course"
+)
 
 func main() {
-	Go := Course{
-		Name:    "Go desde 0",
-		Price:   12.75,
-		IsFree:  false,
-		UserIDs: []uint{22545, 14587, 45687, 485456},
-		Clases: map[uint]string{
-			1: "Introducción",
-			2: "Estructuras",
-			3: "Ciclos",
-			4: "Funciones",
-		},
+	Go := course.New("Go desde 0", 25, false)
+
+	Go.UserIDs = []uint{22545, 14587, 45687, 485456}
+	Go.Clases = map[uint]string{
+		1: "Introducción",
+		2: "Estructuras",
+		3: "Ciclos",
+		4: "Funciones",
 	}
+
 	/*Css := Course{Name: "CSS", IsFree: false}
 	Js := Course{}
 	Js.Name = "JS para expertos"
